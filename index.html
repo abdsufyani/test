@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موقعي الشخصي</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">abdsufyani</a>
+      <ul class="nav-links">
+        <li><a href="#about">من أنا</a></li>
+        <li><a href="#services">خدماتي</a></li>
+        <li><a href="#portfolio">أعمالي</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" onclick="closeMobileMenu()">من أنا</a></li>
+      <li><a href="#services" onclick="closeMobileMenu()">خدماتي</a></li>
+      <li><a href="#portfolio" onclick="closeMobileMenu()">أعمالي</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">تواصل</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">مرحباً، أنا</p>
+        <h1 class="hero-name">عبدالرحمن سفياني</h1>
+        <h2 class="hero-title">مطوّر ويب متكامل</h2>
+        <p class="hero-desc">أبني تجارب رقمية استثنائية — من الفكرة إلى المنتج النهائي</p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary">استعرض أعمالي</a>
+          <a href="#contact" class="btn btn-outline">تواصل معي</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-wrapper">
+          <div class="avatar-circle">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="orbit orbit-1"><span></span></div>
+          <div class="orbit orbit-2"><span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <a href="#about"><i class="fas fa-chevron-down"></i></a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">التعريف</span>
+        <h2 class="section-title">من أنا؟</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>مطوّر ويب شغوف بإنشاء مواقع وتطبيقات ويب عالية الجودة. أعمل على كلٍّ من الواجهة الأمامية والخلفية لأقدّم حلولاً متكاملة ترتكز على الأداء والجماليّة والتجربة المستخدمية.</p>
+          <p>أؤمن بأن كل مشروع هو فرصة لإنشاء شيء مميّز ومختلف، ولذلك أُولي اهتماماً كبيراً بالتفاصيل ومتطلبات العميل.</p>
+          <div class="stats-row">
+            <div class="stat">
+              <span class="stat-number">+30</span>
+              <span class="stat-label">مشروع منجز</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">+20</span>
+              <span class="stat-label">عميل راضٍ</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">سنوات خبرة</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills-card">
+          <h3>المهارات التقنية</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-info"><span>HTML / CSS</span><span>95%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>JavaScript</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>React</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Node.js</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>UI/UX Design</span><span>70%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section-dark" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ما أقدّمه</span>
+        <h2 class="section-title">خدماتي</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>تطوير المواقع</h3>
+          <p>بناء مواقع ويب احترافية وسريعة متوافقة مع جميع الأجهزة باستخدام أحدث التقنيات.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> تصميم متجاوب</li>
+            <li><i class="fas fa-check"></i> أداء عالٍ</li>
+            <li><i class="fas fa-check"></i> SEO محسّن</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>تطبيقات الويب</h3>
+          <p>تطوير تطبيقات ويب تفاعلية وديناميكية مع واجهة مستخدم سلسة وتجربة ممتعة.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> React & Vue</li>
+            <li><i class="fas fa-check"></i> واجهات API</li>
+            <li><i class="fas fa-check"></i> قواعد بيانات</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>تصميم UI/UX</h3>
+          <p>تصميم واجهات مستخدم جذابة وعملية تركّز على تجربة المستخدم وسهولة الاستخدام.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> نماذج أولية</li>
+            <li><i class="fas fa-check"></i> أنظمة تصميم</li>
+            <li><i class="fas fa-check"></i> تجربة مستخدم</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h3>متاجر إلكترونية</h3>
+          <p>بناء متاجر إلكترونية متكاملة مع لوحة تحكم وإدارة المنتجات وبوابات الدفع.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> لوحة تحكم</li>
+            <li><i class="fas fa-check"></i> بوابات دفع</li>
+            <li><i class="fas fa-check"></i> إدارة المخزون</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-server"></i></div>
+          <h3>الواجهة الخلفية</h3>
+          <p>تطوير خوادم وAPIs قوية وآمنة باستخدام Node.js وقواعد بيانات متنوعة.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> REST APIs</li>
+            <li><i class="fas fa-check"></i> مصادقة آمنة</li>
+            <li><i class="fas fa-check"></i> قواعد بيانات</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-tools"></i></div>
+          <h3>صيانة ودعم</h3>
+          <p>متابعة وصيانة المواقع الحالية وإضافة الميزات الجديدة وحل المشاكل التقنية.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> دعم مستمر</li>
+            <li><i class="fas fa-check"></i> تحديثات دورية</li>
+            <li><i class="fas fa-check"></i> نسخ احتياطية</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ما أنجزته</span>
+        <h2 class="section-title">أعمالي</h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="web">مواقع</button>
+        <button class="filter-btn" data-filter="app">تطبيقات</button>
+        <button class="filter-btn" data-filter="design">تصميم</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-card" data-category="web">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+            <i class="fas fa-store"></i>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">متجر إلكتروني</span>
+            <h3>متجر الأزياء</h3>
+            <p>متجر متكامل مع لوحة تحكم وبوابة دفع وإدارة المنتجات</p>
+            <div class="portfolio-links">
+              <a href="#" class="btn-icon"><i class="fas fa-eye"></i> معاينة</a>
+              <a href="#" class="btn-icon"><i class="fab fa-github"></i> كود</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="app">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">تطبيق ويب</span>
+            <h3>مدير المهام</h3>
+            <p>تطبيق إدارة مهام تفاعلي مع نظام تصنيف وتتبع التقدم</p>
+            <div class="portfolio-links">
+              <a href="#" class="btn-icon"><i class="fas fa-eye"></i> معاينة</a>
+              <a href="#" class="btn-icon"><i class="fab fa-github"></i> كود</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="design">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+            <i class="fas fa-clinic-medical"></i>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">تصميم UI</span>
+            <h3>تطبيق عيادة طبية</h3>
+            <p>تصميم كامل لتطبيق حجز مواعيد عيادة طبية</p>
+            <div class="portfolio-links">
+              <a href="#" class="btn-icon"><i class="fas fa-eye"></i> معاينة</a>
+              <a href="#" class="btn-icon"><i class="fab fa-github"></i> كود</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="web">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+            <i class="fas fa-newspaper"></i>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">موقع ويب</span>
+            <h3>بوابة إخبارية</h3>
+            <p>موقع أخبار متكامل مع نظام إدارة المحتوى والتصنيفات</p>
+            <div class="portfolio-links">
+              <a href="#" class="btn-icon"><i class="fas fa-eye"></i> معاينة</a>
+              <a href="#" class="btn-icon"><i class="fab fa-github"></i> كود</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="app">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">لوحة تحكم</span>
+            <h3>داشبورد تحليلات</h3>
+            <p>لوحة تحكم تفاعلية مع رسوم بيانية وإحصائيات في الوقت الفعلي</p>
+            <div class="portfolio-links">
+              <a href="#" class="btn-icon"><i class="fas fa-eye"></i> معاينة</a>
+              <a href="#" class="btn-icon"><i class="fab fa-github"></i> كود</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="design">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">موقع ويب</span>
+            <h3>موقع مطعم</h3>
+            <p>موقع راقٍ لمطعم مع قائمة الطعام والحجز الإلكتروني</p>
+            <div class="portfolio-links">
+              <a href="#" class="btn-icon"><i class="fas fa-eye"></i> معاينة</a>
+              <a href="#" class="btn-icon"><i class="fab fa-github"></i> كود</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">أهلاً بك</span>
+        <h2 class="section-title">تواصل معي</h2>
+        <p class="section-subtitle">هل لديك مشروع في ذهنك؟ تحدّث معي وسنحوّله إلى واقع</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>البريد الإلكتروني</h4>
+              <a href="mailto:hello@abdsufyani.com">hello@abdsufyani.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h4>الهاتف / واتساب</h4>
+              <a href="tel:+966500000000">+966 50 000 0000</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>الموقع</h4>
+              <span>المملكة العربية السعودية</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">الاسم</label>
+              <input type="text" id="name" name="name" placeholder="اسمك الكريم" required />
+            </div>
+            <div class="form-group">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">الموضوع</label>
+            <input type="text" id="subject" name="subject" placeholder="موضوع رسالتك" required />
+          </div>
+          <div class="form-group">
+            <label for="message">الرسالة</label>
+            <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+          </button>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i> تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 عبدالرحمن سفياني — جميع الحقوق محفوظة</p>
+      <p>صُنع بـ <i class="fas fa-heart" style="color:#e74c3c"></i> وكثير من القهوة</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
