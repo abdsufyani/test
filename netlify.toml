@@ -1,0 +1,15 @@
+# Netlify: هذا الريبو ينشر مشروع «رنّة» من مجلد order-ping
+[build]
+  base = "order-ping"
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/o/*"
+  to = "/order.html"
+  status = 200
+
+[[redirects]]
+  from = "/"
+  to = "/cashier.html"
+  status = 302
