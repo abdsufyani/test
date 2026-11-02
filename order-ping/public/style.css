@@ -1,0 +1,89 @@
+:root {
+  --bg: #f6f5f1;
+  --card: #ffffff;
+  --ink: #111113;
+  --muted: #6b6b70;
+  --line: #e7e5df;
+  --accent: #c8392b;
+  --ok: #2e9e5b;
+  --ok-soft: #e7f5ec;
+  --dark: #141416;
+  --radius: 22px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; cursor: pointer; border: 0; }
+.hidden { display: none !important; }
+
+/* أرقام النقاط */
+.dots { display: inline-flex; gap: 10px; direction: ltr; }
+.dots-char { display: grid; grid-template-columns: repeat(5, var(--d, 9px)); gap: 3px; }
+.dots-char i { width: var(--d, 9px); height: var(--d, 9px); border-radius: 50%; background: rgba(255,255,255,.08); }
+.dots-char i.on { background: #fff; box-shadow: 0 0 6px rgba(255,255,255,.5); }
+.ready .dots-char i.on { background: #ff6b5b; box-shadow: 0 0 8px rgba(255,90,70,.7); }
+
+/* ---------- صفحة العميل ---------- */
+.customer { max-width: 440px; margin: 0 auto; padding: 24px 16px 40px; }
+.shop { display: flex; align-items: center; gap: 10px; font-weight: 700; margin-bottom: 18px; }
+.shop .logo { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; }
+.ticket {
+  background: var(--dark); color: #fff; border-radius: var(--radius);
+  padding: 28px 20px; text-align: center; transition: background .4s;
+}
+.ticket.ready { background: radial-gradient(circle at 50% 0%, #5a1d18, var(--dark) 70%); }
+.ticket .label { color: #9a9aa0; font-size: 14px; margin-bottom: 14px; }
+.ticket .status { font-size: 22px; font-weight: 700; margin-top: 18px; }
+.ticket .sub { color: #a9a9ae; font-size: 14px; margin-top: 4px; }
+.pulse { display: flex; gap: 6px; justify-content: center; margin-top: 16px; }
+.pulse span { width: 7px; height: 7px; border-radius: 50%; background: #fff; opacity: .3; animation: p 1.2s infinite; }
+.pulse span:nth-child(2) { animation-delay: .2s } .pulse span:nth-child(3) { animation-delay: .4s }
+@keyframes p { 50% { opacity: 1 } }
+
+.btn { display: block; width: 100%; padding: 16px; border-radius: 999px; font-weight: 700; font-size: 17px; margin-top: 16px; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-ok { background: var(--ok-soft); color: var(--ok); border: 1.5px solid #9fd3b2; }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn:disabled { opacity: .5; cursor: default; }
+.note { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-top: 16px; font-size: 14px; color: var(--muted); line-height: 1.8; }
+.note b { color: var(--ink); }
+.pill { display: inline-flex; gap: 6px; align-items: center; background: rgba(46,158,91,.15); color: #7be3a3; padding: 8px 14px; border-radius: 999px; font-size: 14px; margin-top: 16px; }
+
+/* ---------- لوحة الكاشير ---------- */
+.cashier { max-width: 1100px; margin: 0 auto; padding: 20px 16px 60px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.topbar h1 { font-size: 22px; }
+.new-order { display: flex; gap: 8px; }
+.new-order input {
+  width: 130px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid var(--line);
+  font: inherit; font-size: 18px; background: #fff; text-align: center;
+}
+.new-order .btn { margin: 0; width: auto; padding: 12px 22px; font-size: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.card-head { display: flex; gap: 14px; align-items: center; }
+.card .num { background: var(--dark); border-radius: 16px; padding: 12px; --d: 6px; }
+.card .num .dots { gap: 6px; } .card .num .dots-char { gap: 2px; }
+.card .st { font-size: 20px; font-weight: 700; }
+.card .follow { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.steps { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
+.step { flex: 1; min-width: 60px; text-align: center; padding: 9px 4px; border-radius: 999px; font-size: 13px; border: 1.5px solid var(--line); color: var(--muted); }
+.step.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+.step.coming.on { background: var(--ok-soft); color: var(--ok); border-color: #9fd3b2; }
+.card-actions { display: flex; gap: 8px; margin-top: 12px; }
+.card-actions .btn { margin: 0; padding: 12px; font-size: 15px; }
+.empty { text-align: center; color: var(--muted); padding: 60px 0; }
+
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: grid; place-items: center; padding: 16px; z-index: 10; }
+.modal-box { background: #fff; border-radius: var(--radius); padding: 24px; text-align: center; max-width: 360px; width: 100%; }
+.modal-box img { width: 100%; max-width: 280px; }
+.modal-box .url { font-size: 12px; color: var(--muted); word-break: break-all; margin-top: 8px; direction: ltr; }
+.login { max-width: 320px; margin: 15vh auto 0; text-align: center; padding: 0 16px; }
+.login input { width: 100%; padding: 14px; border-radius: 14px; border: 1.5px solid var(--line); font-size: 22px; text-align: center; margin-top: 16px; letter-spacing: 6px; }
+.err { color: var(--accent); margin-top: 10px; font-size: 14px; }

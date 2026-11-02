@@ -1,0 +1,19 @@
+{
+  "name": "order-ping",
+  "version": "1.0.0",
+  "description": "نظام تنبيه الطلبات عبر QR و Web Push",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "vapid": "node scripts/gen-vapid.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0",
+    "qrcode": "^1.5.4",
+    "web-push": "^3.6.7",
+    "ws": "^8.22.1"
+  }
+}

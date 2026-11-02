@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
+  <title>لوحة الكاشير</title>
+</head>
+<body>
+  <!-- تسجيل الدخول -->
+  <section id="loginView" class="login">
+    <h1>لوحة الكاشير</h1>
+    <form id="loginForm">
+      <input id="pinInput" type="password" inputmode="numeric" placeholder="PIN" autocomplete="off">
+      <button class="btn btn-dark" type="submit">دخول</button>
+      <div id="loginErr" class="err"></div>
+    </form>
+  </section>
+
+  <!-- اللوحة -->
+  <main id="boardView" class="cashier hidden">
+    <div class="topbar">
+      <h1>الطلبات</h1>
+      <form id="newForm" class="new-order">
+        <input id="newNum" type="text" inputmode="numeric" placeholder="رقم الطلب" maxlength="4" required>
+        <button class="btn btn-primary" type="submit">+ طلب جديد</button>
+      </form>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty">ما فيه طلبات حالياً. أضف طلب جديد واطبع الكود للعميل.</div>
+  </main>
+
+  <!-- نافذة QR -->
+  <div id="qrModal" class="modal hidden">
+    <div class="modal-box">
+      <h2 id="qrTitle">طلب رقم</h2>
+      <p style="color:var(--muted);margin:6px 0 12px">خلّ العميل يمسح الكود بكاميرا جواله</p>
+      <img id="qrImg" alt="QR">
+      <div id="qrUrl" class="url"></div>
+      <button id="qrClose" class="btn btn-dark">تم</button>
+    </div>
+  </div>
+
+  <script src="/dots.js"></script>
+  <script src="/cashier.js"></script>
+</body>
+</html>
