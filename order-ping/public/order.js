@@ -82,15 +82,13 @@ async function load() {
   return true;
 }
 
-function connectWS() {
-  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
-  const ws = new WebSocket(`${proto}://${location.host}/ws?order=${orderId}`);
-  ws.onmessage = (e) => {
-    const msg = JSON.parse(e.data);
-    if (msg.type === 'order') { order = msg.order; render(); }
-  };
-  ws.onclose = () => setTimeout(() => { load(); connectWS(); }, 2000);
+// تحديث الحالة كل ثانيتين (يوقف لما الصفحة مخفية)
+let pollTimer = null;
+function startPolling() {
+  clearInterval(pollTimer);
+  pollTimer = setInterval(() => { if (!document.hidden) load(); }, 2000);
 }
+document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
 
 function urlBase64ToUint8Array(base64) {
   const pad = '='.repeat((4 - (base64.length % 4)) % 4);
@@ -133,7 +131,7 @@ function localStorageGet(k) { try { return localStorage.getItem(k); } catch (_) 
 async function init() {
   const ok = await load();
   if (!ok) return;
-  connectWS();
+  startPolling();
   api('/ack', { event: 'opened' });
 
   if (order.status !== 'preparing') return;

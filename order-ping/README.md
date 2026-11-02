@@ -27,6 +27,14 @@ Web Push **لازم HTTPS**. على localhost يشتغل بدونه، لكن ا�
 - حط `BASE_URL=https://دومينك` في `.env` عشان روابط QR تطلع صح.
 - ملف `.env` ومفاتيح VAPID لا ترفعها على GitHub (موجودة في `.gitignore`).
 
+### النشر على Netlify
+المشروع جاهز لـ Netlify. الـ API في `netlify/functions/api.mts`، والبيانات تنحفظ في Netlify Blobs، والإعدادات في `netlify.toml`.
+1. اربط المجلد `order-ping` بمشروع على Netlify، أو ارفعه بالأمر `npx netlify deploy --prod`.
+2. حط متغيرات البيئة: `VAPID_PUBLIC_KEY` و`VAPID_PRIVATE_KEY` و`VAPID_SUBJECT` و`CASHIER_PIN`.
+3. لوحة الكاشير تكون على `https://<موقعك>.netlify.app/cashier.html`.
+
+الصفحات تتحدث كل ثانيتين (polling)، فتشتغل مع Netlify ومع `server.js` المحلي.
+
 ## حدود معروفة
 | الجهاز | الوضع |
 |---|---|

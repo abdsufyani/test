@@ -31,24 +31,32 @@ async function start() {
   if (!r.ok) { show('loginView', true); show('boardView', false); return; }
   show('loginView', false);
   show('boardView', true);
-  orders.clear();
-  for (const o of await r.json()) orders.set(o.id, o);
-  renderAll();
-  connectWS();
+  setOrders(await r.json());
+  startPolling();
 }
 
-function connectWS() {
-  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
-  const ws = new WebSocket(`${proto}://${location.host}/ws?role=cashier&pin=${encodeURIComponent(pin)}`);
-  ws.onmessage = (e) => {
-    const msg = JSON.parse(e.data);
-    if (msg.type !== 'order') return;
-    if (msg.order.status === 'done') orders.delete(msg.order.id);
-    else orders.set(msg.order.id, msg.order);
-    renderAll();
-  };
-  ws.onclose = (e) => { if (e.code !== 4001) setTimeout(start, 2000); };
+// تحديث اللوحة كل ثانيتين (يوقف لما الصفحة مخفية)
+let pollTimer = null;
+let lastJson = '';
+function setOrders(list) {
+  const j = JSON.stringify(list);
+  if (j === lastJson) return; // ما تغير شي، لا نعيد الرسم
+  lastJson = j;
+  orders.clear();
+  for (const o of list) orders.set(o.id, o);
+  renderAll();
 }
+async function refresh() {
+  try {
+    const r = await api('/orders');
+    if (r.ok) setOrders(await r.json());
+  } catch (_) {}
+}
+function startPolling() {
+  clearInterval(pollTimer);
+  pollTimer = setInterval(() => { if (!document.hidden) refresh(); }, 2000);
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden && pin) refresh(); });
 
 // ---------- الرسم ----------
 const STATUS_TEXT = { preparing: 'قيد التحضير', ready: 'جاهز' };
@@ -107,7 +115,7 @@ function button(text, cls, onClick) {
   const b = document.createElement('button');
   b.className = `btn ${cls}`;
   b.textContent = text;
-  b.addEventListener('click', async () => { b.disabled = true; await onClick(); b.disabled = false; });
+  b.addEventListener('click', async () => { b.disabled = true; await onClick(); await refresh(); b.disabled = false; });
   return b;
 }
 
@@ -120,6 +128,7 @@ $('newForm').addEventListener('submit', async (e) => {
   if (!r.ok) return alert('ما قدرت أضيف الطلب');
   const data = await r.json();
   $('newNum').value = '';
+  refresh();
   openQR(data.order.number, data.qr, data.url);
 });
 

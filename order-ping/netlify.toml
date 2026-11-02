@@ -1,0 +1,14 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# صفحة العميل: /o/<id> تعرض order.html
+[[redirects]]
+  from = "/o/*"
+  to = "/order.html"
+  status = 200
+
+[[redirects]]
+  from = "/"
+  to = "/cashier.html"
+  status = 302
